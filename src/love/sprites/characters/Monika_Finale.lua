@@ -156,7 +156,11 @@ return graphics.newSprite(
 		["left glitch"] = {start = 57, stop = 72, speed = 24, offsetX = 0, offsetY = 0},
 		["right glitch"] = {start = 87, stop = 102, speed = 24, offsetX = 0, offsetY = 0},
 		["up glitch"] = {start = 117, stop = 129, speed = 24, offsetX = 0, offsetY = 0},
-		["idle"] = {start = 31, stop = 56, speed = 24, offsetX = 0, offsetY = 0}
+		["down alt"] = {start = 17, stop = 30, speed = 24, offsetX = 0, offsetY = 0},
+		["left alt"] = {start = 73, stop = 86, speed = 24, offsetX = 0, offsetY = 0},
+		["right alt"] = {start = 103, stop = 116, speed = 24, offsetX = 0, offsetY = 0},
+		["up alt"] = {start = 130, stop = 143, speed = 24, offsetX = 0, offsetY = 0},
+		["yo mama"] = {start = 130, stop = 143, speed = 24, offsetX = 0, offsetY = 0}
     },
     "idle",
     false

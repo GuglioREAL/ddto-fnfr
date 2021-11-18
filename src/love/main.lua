@@ -60,8 +60,11 @@ function love.load()
 		require "weeks.yuri",
 		require "weeks.monika",
 		require "weeks.festival",
+		require "weeks.your-reality", -- Freeplay Menu
 		require "weeks.pnt", -- Freeplay Menu
+		require "weeks.dualdemise", -- Freeplay Menu
 		require "weeks.bigika" -- Freeplay Menu
+		
 	}
 
 	-- LÖVE init

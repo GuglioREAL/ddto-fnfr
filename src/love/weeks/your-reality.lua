@@ -42,55 +42,56 @@ return {
 		cam.sizeX, cam.sizeY = 1, 1
 		camScale.x, camScale.y = 1, 1
 
-		boyfriend.x, boyfriend.y = 50, 30
+		sky = graphics.newImage(love.graphics.newImage(graphics.imagePath("week6/sky")))
+		school = graphics.newImage(love.graphics.newImage(graphics.imagePath("week6/school")))
+		street = graphics.newImage(love.graphics.newImage(graphics.imagePath("week6/street")))
+		treesBack = graphics.newImage(love.graphics.newImage(graphics.imagePath("week6/trees-back")))
+
+        fakeBoyfriend = love.filesystem.load("sprites/characters/playablesenpai.lua")()
+
+        boyfriend = love.filesystem.load("sprites/characters/playablesenpai.lua")()
+
+        enemy = love.filesystem.load("sprites/characters/monikapixel.lua")()
+
+		trees = love.filesystem.load("sprites/week6/trees.lua")()
+		petals = love.filesystem.load("sprites/week6/petals.lua")()
+		freaks = love.filesystem.load("sprites/week6/freaks.lua")()
+
+		sky.y = 1
+		school.y = 1
+		
+
+		boyfriend.x, boyfriend.y = 50, 7
 		fakeBoyfriend.x, fakeBoyfriend.y = 50, 30
 
-		enemyIcon:animate("dual demise", false)
+		enemyIcon:animate("monika", false)
+        boyfriendIcon:animate("senpai", false)
 
 		self:load()
 	end,
 
 	load = function(self)
 		
-		sky = graphics.newImage(love.graphics.newImage(graphics.imagePath("monika/FinaleBG_1")))
-		school = graphics.newImage(love.graphics.newImage(graphics.imagePath("monika/FinaleBG_2")))
-		street = graphics.newImage(love.graphics.newImage(graphics.imagePath("monika/FinaleFG")))
-		enemy = love.filesystem.load("sprites/characters/Monika_Finale.lua")()
-		boyfriend = love.filesystem.load("sprites/characters/boyfriendMad.lua")()
 
-		spirit = love.filesystem.load("sprites/week6/spirit.lua")()
-		monika = love.filesystem.load("sprites/characters/Monika_Finale.lua")()
-
-		enemy.x = 50
-		enemy.y = -160
-
-		boyfriend.y = 45
-		boyfriend.x = 50
-
-		enemy.sizeX, enemy.sizeY = 1.2, 1.2
-
-		school.sizeX, school.sizeY = 0.4, 0.4
-		sky.sizeX, sky.sizeY = 0.3, 0.3
-		street.sizeX, street.sizeY = 0.3, 0.3
 
 		weeksPixel:load()
 
-		inst = love.audio.newSource("music/extra/dual demise/Inst.ogg", "stream")
-		voices = love.audio.newSource("music/extra/dual demise/Voices.ogg", "stream")
-		monika.x, monika.y = -35, 5
-		spirit.x, spirit.y = -80, 30
-		enemy.x, enemy.y = -50, 0
+		
+		inst = love.audio.newSource("music/extra/your reality/Inst.ogg", "stream")
+		voices = love.audio.newSource("music/extra/your reality/Voices.ogg", "stream")
+
+		enemy.x, enemy.y = -65, 30
 
 		self:initUI()
-
-		weeksPixel:setupCountdownDemise()
+		weeksPixel:setupCountdown()
 		
 	end,
 
 	initUI = function(self)
 		weeksPixel:initUI()
 
-		weeksPixel:generateNotes(love.filesystem.load("charts/extra/dual demise" .. difficulty .. ".lua")())
+		
+		weeksPixel:generateNotes(love.filesystem.load("charts/extra/your reality.lua")())
 		
 	end,
 
@@ -98,75 +99,23 @@ return {
 		graphics.screenBase(256, 144)
 
 		weeksPixel:update(dt)
-		spirit:update(dt)
-		monika:update(dt)
-
-		if enemy:getAnimName() == "idle" then
-			enemy:animate("yo mama", false)
-			spirit:animate("idle", false)
-			monika:animate("idle", false)
-		end
-
-		if enemy:getAnimName() == "up alt" then
-			spirit:animate("up", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "down alt" then
-			spirit:animate("down", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "right alt" then
-			spirit:animate("right", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "left alt" then
-			spirit:animate("left", false)
-			enemy:animate("yo mama", false)
-		end
-		if enemy:getAnimName() == "up" then
-			monika:animate("up", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "down" then
-			monika:animate("down", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "right" then
-			monika:animate("right", false)
-			enemy:animate("yo mama", false)
-		elseif enemy:getAnimName() == "left" then
-			monika:animate("left", false)
-			enemy:animate("yo mama", false)
+		
+		if health >= 80 then
+			if enemyIcon:getAnimName() == "monika pixel" then
+				enemyIcon:animate("monika pixel losing", false)
+			end
+		else
+			if enemyIcon:getAnimName() == "monika pixel losing" then
+				enemyIcon:animate("monika pixel", false)
+			end
 		end
 
-		if musicTime >= 12632 then
-			if musicTime <= 12700 then
-				monika:animate("idle", true)
-			end
-		end
-		if musicTime >= 22736 then
-			if musicTime <= 22800 then
-				monika:animate("idle", true)
-			end
-		end
-		if musicTime >= 42947 then
-			if musicTime <= 43000 then
-				monika:animate("idle", true)
-			end
-		end
-		if musicTime >= 53052 then
-			if musicTime <= 53100 then
-				monika:animate("idle", true)
-			end
-		end
-		if musicTime >= 73421 then
-			if musicTime <= 73400 then
-				monika:animate("idle", true)
-			end
-		end
-		if musicTime >= 83368 then
-			if musicTime <= 83400 then
-				monika:animate("idle", true)
-			end
-		end
+		trees:update(dt)
+		petals:update(dt)
+
 
 		if not (countingDown or graphics.isFading()) and not (inst:isPlaying() and voices:isPlaying()) then
-			if storyMode and song < 3 then
+			if storyMode and song < 1 then
 				song = song + 1
 
 				self:load()
@@ -212,9 +161,12 @@ return {
 					love.graphics.translate(math.floor(cam.x), math.floor(cam.y))
 
 					street:draw()
-					monika:draw()
-					spirit:draw()
-
+					
+					treesBack:draw()
+					trees:draw()
+					petals:draw()
+					
+					enemy:draw()
 					boyfriend:draw()
 				love.graphics.pop()
 				weeksPixel:drawRating()
@@ -245,3 +197,11 @@ return {
 		love.graphics.setDefaultFilter("linear")
 	end
 }
+--[[
+
+Bro who even believes in gravity anymore??
+
+
+Just walk on walls
+
+]]--

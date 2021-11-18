@@ -82,9 +82,21 @@ local weekMeta = {
 		}
 	},
 	{
+		"Your Reality",
+		{
+			"Your Reality"
+		}
+	},
+	{
 		"Poems n' Thorns",
 		{
 			"Poems n' Thorns"
+		}
+	},
+	{
+		"Dual Demise",
+		{
+			"Dual Demise"
 		}
 	},
 	{
@@ -326,11 +338,9 @@ return {
 			love.graphics.push()
 				love.graphics.scale(cam.sizeX, cam.sizeY)
 
-
-
-				
 				tempMenu()
 				drawFunc()
+				
 			love.graphics.pop()
 		love.graphics.pop()
 	end,

@@ -27,3 +27,6 @@ tools/funkin-xna/*
 !tools/funkin-json-sniff/funkin-json-sniff.py
 !tools/funkin-xml/funkin-xml.py
 !tools/funkin-xna/funkin-xna.py
+
+# Ignore me file
+src/love/states/ignore.me

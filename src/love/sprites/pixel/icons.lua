@@ -13,7 +13,8 @@ return graphics.newSprite(
 		{x = 150, y = 0, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 6: Duet
 		{x = 180, y = 0, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 7: Duet Losing
 		{x = 210, y = 0, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 8: Demise
-		{x = 240, y = 0, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0} -- 9: Demise Losing
+		{x = 240, y = 0, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 9: Demise Losing
+		{x = 0, y = 30, width = 30, height = 30, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0} -- 10: Demise Losing
 	},
 	{
 		["boyfriend"] = {start = 1, stop = 1, speed = 0, offsetX = 0, offsetY = 0},
@@ -24,7 +25,8 @@ return graphics.newSprite(
 		["duet"] = {start = 6, stop = 6, speed = 0, offsetX = 0, offsetY = 0},
 		["duet losing"] = {start = 7, stop = 7, speed = 0, offsetX = 0, offsetY = 0},
 		["demise"] = {start = 8, stop = 8, speed = 0, offsetX = 0, offsetY = 0},
-		["demise losing"] = {start = 9, stop = 9, speed = 0, offsetX = 0, offsetY = 0}
+		["demise losing"] = {start = 9, stop = 9, speed = 0, offsetX = 0, offsetY = 0},
+		["dual demise"] = {start = 10, stop = 10, speed = 0, offsetX = 0, offsetY = 0}
 	},
 	"boyfriend",
 	false,
