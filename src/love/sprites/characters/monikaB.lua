@@ -161,7 +161,7 @@ return graphics.newSprite(
 		["right"] = {start = 125, stop = 138, speed = 24, offsetX = 0, offsetY = -1},
 		["up"] = {start = 139, stop = 152, speed = 24, offsetX = 0, offsetY = 0},
 		["idle"] = {start = 15, stop = 28, speed = 24, offsetX = 1, offsetY = -15},
-		["last"] = {start = 29, stop = 110, speed = 24, offsetX = 191, offsetY = 43}
+		["last"] = {start = 29, stop = 110, speed = 24, offsetX = -32, offsetY = 6}
 	},
     "idle",
     false
