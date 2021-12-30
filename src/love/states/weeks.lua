@@ -1013,7 +1013,9 @@ return {
 				girlfriend:setAnimSpeed(14.4 / (60 / bpm))
 			end
 			if spriteTimers[2] == 0 then
-				self:safeAnimate(enemy, "idle", false, 2)
+				if enemy:getAnimName() ~= "last" then
+					self:safeAnimate(enemy, "idle", false, 2)
+				end
 			end
 			if spriteTimers[3] == 0 then
 				self:safeAnimate(boyfriend, "idle", false, 3)
