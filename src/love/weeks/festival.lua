@@ -136,6 +136,49 @@ return {
 
 			sky.y = 1
 			school.y = 1
+
+			function getFake()
+				cam.sizeX, cam.sizeY = 5.9, 5.9
+				cam.x, cam.y = 600, -2000
+				enemy.x = -200
+				enemy.y = 38
+
+				if enemyIcon:getAnimName() == "monika losing" then
+					enemyIcon:animate("monikap", false)
+				end
+				if enemyIcon:getAnimName() == "monika" then
+					enemyIcon:animate("monikap losing", false)
+				end
+				boyfriendIcon:animate("boyfriend pixel", false)
+
+				boyfriend.y = 45
+				boyfriend.x = 50
+				obsession = 2
+				pixelTime = true
+			end
+
+			function getReal()
+				cam.sizeX, cam.sizeY = 0.9, 0.9
+				camScale.x, camScale.y = 0.9, 0.9
+
+				if enemyIcon:getAnimName() == "monikap" then
+					enemyIcon:animate("monika", false)
+				end
+				if enemyIcon:getAnimName() == "monikap losing" then
+					enemyIcon:animate("monika losing", false)
+				end
+
+				if health <= 20 then
+					boyfriendIcon:animate("boyfriend losing", false)
+				elseif health > 20 then
+					boyfriendIcon:animate("boyfriend", false)
+				end
+
+				enemy.x, enemy.y = -380, 180
+				boyfriend.x, boyfriend.y = 260, 320
+				obsession = 1
+				pixelTime = false
+			end
 		end
 
 		self:initUI()
@@ -263,79 +306,23 @@ return {
 
 		if song == 4 then
 			if musicTime >= 49370 then
-				if musicTime <= 71312 then
-					cam.sizeX, cam.sizeY = 5.9, 5.9
-					camScale.x, camScale.y = gf2.x + 60, gf2.y - 1200
-					enemy.x = -200
-					enemy.y = 38
-
-					if enemyIcon:getAnimName() == "monika losing" then
-						enemyIcon:animate("monikap", false)
-					end
-					if enemyIcon:getAnimName() == "monika" then
-						enemyIcon:animate("monikap losing", false)
-					end
-
-					boyfriend.y = 45
-					boyfriend.x = 50
-					obsession = 2
-					pixelTime = true
+				if musicTime <= 49400 then
+					getFake()
 				end
 			end
 			if musicTime >= 71312 then
-				if musicTime <= 93256 then
-					cam.sizeX, cam.sizeY = 0.9, 0.9
-					camScale.x, camScale.y = 0.9, 0.9
-
-					if enemyIcon:getAnimName() == "monikap" then
-						enemyIcon:animate("monika", false)
-					end
-					if enemyIcon:getAnimName() == "monikap losing" then
-						enemyIcon:animate("monika losing", false)
-					end
-
-					enemy.x, enemy.y = -380, 180
-					boyfriend.x, boyfriend.y = 260, 320
-					obsession = 1
-					pixelTime = false
-				end
+				if musicTime <= 71400 then
+					getReal()
+				end 
 			end 
 			if musicTime >= 93256 then
-				if musicTime <= 115200 then
-					cam.sizeX, cam.sizeY = 5.9, 5.9
-					camScale.x, camScale.y = gf2.x + 60, gf2.y - 1200
-					enemy.x = -200
-					enemy.y = 38
-
-					if enemyIcon:getAnimName() == "monika" then
-						enemyIcon:animate("monikap", false)
-					end
-					if enemyIcon:getAnimName() == "monika" then
-						enemyIcon:animate("monikap losing", false)
-					end
-
-					boyfriend.y = 45
-					boyfriend.x = 50
-					obsession = 2
-					pixelTime = true
+				if musicTime <= 93300 then
+					getFake()
 				end
 			end
 			if musicTime >= 115200 then
-				if musicTime <= 200000 then
-					cam.sizeX, cam.sizeY = 0.9, 0.9
-					camScale.x, camScale.y = 0.9, 0.9
-
-					if enemyIcon:getAnimName() == "monikap" then
-						enemyIcon:animate("monika", false)
-					end
-					if enemyIcon:getAnimName() == "monikap" then
-						enemyIcon:animate("monika losing", false)
-					end
-
-					enemy.x, enemy.y = -380, 180
-					boyfriend.x, boyfriend.y = 260, 320
-					obsession = 1
-					pixelTime = false
+				if musicTime <= 115250 then
+					getReal()
 				end
 			end
 
