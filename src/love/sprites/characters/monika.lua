@@ -75,15 +75,15 @@ return graphics.newSprite(
 		{x = 7215, y = 822, width = 492, height = 819, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0} -- 71: Monika Returns Up0012
 	},
     {
-        ["down"] = {start = 1, stop = 14, speed = 24, offsetX = 14, offsetY = 0},
-		["left"] = {start = 32, stop = 44, speed = 24, offsetX = 40, offsetY = 0},
-		["right"] = {start = 45, stop = 58, speed = 24, offsetX = 0, offsetY = 0},
-		["up"] = {start = 59, stop = 71, speed = 24, offsetX = 5, offsetY = 37},
+        ["down"] = {start = 1, stop = 14, speed = 24, offsetX = 25, offsetY = -22},
+		["left"] = {start = 32, stop = 44, speed = 24, offsetX = 1, offsetY = 24},
+		["right"] = {start = 45, stop = 58, speed = 24, offsetX = 29, offsetY = -3},
+		["up"] = {start = 59, stop = 71, speed = 24, offsetX = -45, offsetY = 5},
 		["idle"] = {start = 15, stop = 31, speed = 24, offsetX = 0, offsetY = 0},
-		["down alt"] = {start = 1, stop = 14, speed = 24, offsetX = 14, offsetY = 0},
-		["left alt"] = {start = 32, stop = 44, speed = 24, offsetX = 40, offsetY = 0},
-		["right alt"] = {start = 45, stop = 58, speed = 24, offsetX = 0, offsetY = 0},
-		["up alt"] = {start = 59, stop = 71, speed = 24, offsetX = 5, offsetY = 0}
+		["down alt"] = {start = 1, stop = 14, speed = 24, offsetX = 25, offsetY = -22},
+		["left alt"] = {start = 32, stop = 44, speed = 24, offsetX = 1, offsetY = 24},
+		["right alt"] = {start = 45, stop = 58, speed = 24, offsetX = 29, offsetY = -3},
+		["up alt"] = {start = 59, stop = 71, speed = 24, offsetX = -45, offsetY = 5}
 	},
     "idle",
     false
